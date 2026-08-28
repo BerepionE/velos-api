@@ -14,4 +14,4 @@ def test_alertes_seuil():
     reponse = client.get("/alertes")
     assert reponse.status_code == 200
     donnees = reponse.get_json()
-    assert all(s["velos_disponibles"] <= 2 for s in donnees["stations"])
+    assert all(s["velos_disponibles"] <= 0 for s in donnees["stations"])  # cassé exprès
