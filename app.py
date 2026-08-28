@@ -26,7 +26,9 @@ def lire_stations():
 
 @app.get("/sante")
 def sante():
+<<<<<<< HEAD
     return jsonify({"statut": "operationnel"})
+=======
 
 @app.get("/stations")
 def stations():
