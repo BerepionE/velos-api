@@ -26,7 +26,7 @@ def lire_stations():
 
 @app.get("/sante")
 def sante():
-    return jsonify({"statut": "ok"})
+    return jsonify({"statut": "en service"})
 
 @app.get("/stations")
 def stations():
