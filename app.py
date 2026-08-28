@@ -26,9 +26,8 @@ def lire_stations():
 
 @app.get("/sante")
 def sante():
-<<<<<<< HEAD
     return jsonify({"statut": "operationnel"})
-=======
+
 
 @app.get("/stations")
 def stations():
@@ -45,6 +44,16 @@ def disponibilite():
     taux = round(100 * velos / capacite_totale, 1)
     return jsonify({"source": source, "taux_occupation": taux})
 
+
+@app.get("/alertes")
+def alertes():
+    donnees, source = lire_stations()
+    seuil = 2
+    stations_alerte = [s for s in donnees if s["velos_disponibles"] <= seuil]
+    return jsonify({"source": source, "stations": stations_alerte})
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", "8000"))
     app.run(host="0.0.0.0", port=port)
+# test cache Fri Aug 28 09:56:05 CEST 2026
+
